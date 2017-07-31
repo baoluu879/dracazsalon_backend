@@ -31,3 +31,7 @@ Route::get('/customercheckinorder/{serviceID}', 'customerCheckInOrder_controller
 #Employee Data
 Route::get('/employee', 'employee_controller@index');
 Route::get('/employee/{storeID}', 'employee_controller@getting_data_with_storeID');
+
+#Login Account Data
+Route::get('/loginaccount', 'loginaccount_controller@index');
+Route::get('/loginaccount/{employeeID}', 'loginaccount_controller@getting_data_with_employeeID');
