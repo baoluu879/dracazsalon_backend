@@ -27,3 +27,7 @@ Route::get('/customercheckin/{payType}', 'customerCheckIn_controller@getting_dat
 #Customer CheckIn Order Data
 Route::get('/customercheckinorder', 'customerCheckInOrder_controller@index');
 Route::get('/customercheckinorder/{serviceID}', 'customerCheckInOrder_controller@getting_data_with_serviceid');
+
+#Employee Data
+Route::get('/employee', 'employee_controller@index');
+Route::get('/employee/{storeID}', 'employee_controller@getting_data_with_storeID');
