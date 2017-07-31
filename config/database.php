@@ -43,7 +43,7 @@ return [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'gator2015.hostgator.com'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'dracazbm_world'),
+            'database' => env('DB_DATABASE', 'dracazbm_salon'),
             'username' => env('DB_USERNAME', 'dracazbm_salon'),
             'password' => env('DB_PASSWORD', 'thaibao_90B'),
             'unix_socket' => env('DB_SOCKET', ''),

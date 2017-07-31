@@ -3,27 +3,28 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Services\city_function;
+use App\Services\customer_function;
 
-class city_controller extends Controller
+class customer_controller extends Controller
 {
     //
 
     public function index(){
       $data["message"]= "true";
-      $temp = new city_function();
+      $temp = new customer_function();
       $data["data"] = $temp->fetching_all_data();
       return $data;
 
     }
 
-    public function getting_data_with_countryCode($CountryCode){
+    public function getting_data_with_phoneNumber($phoneNumber){
       $message = "False";
       $data["message"]= $message;
       try{
         $message = "True";
-        $temp = new city_function();
-        $data["data"] = $temp->fetching_data_with_condition($CountryCode);
+        $data["parameter"]= "customer/<phoneNumber>";
+        $temp = new customer_function();
+        $data["data"] = $temp->fetching_data_with_condition($phoneNumber);
       }catch(Exception $e){
           $message = $e;
       }
