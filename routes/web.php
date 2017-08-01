@@ -52,3 +52,7 @@ Route::get('/saloncard/customer/{ID}', 'saloncard_controller@getting_data_with_c
 #Salon Service Data
 Route::get('/salonservice', 'salonservice_controller@index');
 // Route::get('/manager/{storeID}', 'manager_controller@getting_data_with_storeID');
+
+#Salon Store Data
+Route::get('/salonstore', 'salonstore_controller@index');
+// Route::get('/manager/{storeID}', 'salonstore_controller@getting_data_with_storeID');
