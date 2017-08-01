@@ -64,3 +64,7 @@ Route::get('/servicecategory', 'servicecategory_controller@index');
 #Treatment Data
 Route::get('/treatment', 'treatment_controller@index');
 // Route::get('/treatment/{storeID}', 'treatment_controller@getting_data_with_storeID');
+
+#Treatment Data
+Route::get('/treatmenttype', 'treatmenttype_controller@index');
+// Route::get('/treatment/{storeID}', 'treatment_controller@getting_data_with_storeID');
