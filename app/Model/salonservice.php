@@ -13,6 +13,6 @@ class salonservice extends Model
 
     public function servicespackagedetail(){
       $dbConnection = new servicespackagedetail();
-      return $this->hasOne($dbConnection, 'SPID', 'SID');
+      return $this->hasOne($dbConnection, 'SalonServiceID', 'SID');
     }
 }
