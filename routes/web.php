@@ -68,3 +68,12 @@ Route::get('/treatment', 'treatment_controller@index');
 #Treatment Data
 Route::get('/treatmenttype', 'treatmenttype_controller@index');
 // Route::get('/treatment/{storeID}', 'treatment_controller@getting_data_with_storeID');
+
+#Service Package Detail Data
+Route::get('/servicespackagedetail', 'servicespackagedetail_controller@index');
+Route::get('/servicespackagedetail/salonservice/{ID}', 'servicespackagedetail_controller@getting_data_with_salonserviceID');
+Route::get('/servicespackagedetail/treatmentorder/{ID}', 'servicespackagedetail_controller@getting_data_with_treatmentOrder');
+
+#Services Package Data
+Route::get('/servicespackage', 'servicespackage_controller@index');
+Route::get('/servicespackage/{price}', 'servicespackage_controller@getting_data_with_price');
