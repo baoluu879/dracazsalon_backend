@@ -24,4 +24,9 @@ class servicespackagedetail_function{
     return $data;
 
   }
+
+  public function fetching_all_data_with_relationship(){
+    $data = servicespackagedetail::with('salonservice')->get();
+    return $data;
+  }
 }

@@ -69,11 +69,14 @@ Route::get('/treatment', 'treatment_controller@index');
 Route::get('/treatmenttype', 'treatmenttype_controller@index');
 // Route::get('/treatment/{storeID}', 'treatment_controller@getting_data_with_storeID');
 
+#Services Package Data
+Route::get('/servicespackage', 'servicespackage_controller@index');
+Route::get('/servicespackage/{price}', 'servicespackage_controller@getting_data_with_price');
+
 #Service Package Detail Data
 Route::get('/servicespackagedetail', 'servicespackagedetail_controller@index');
 Route::get('/servicespackagedetail/salonservice/{ID}', 'servicespackagedetail_controller@getting_data_with_salonserviceID');
 Route::get('/servicespackagedetail/treatmentorder/{ID}', 'servicespackagedetail_controller@getting_data_with_treatmentOrder');
 
-#Services Package Data
-Route::get('/servicespackage', 'servicespackage_controller@index');
-Route::get('/servicespackage/{price}', 'servicespackage_controller@getting_data_with_price');
+#Testing With Relationship
+Route::get('/servicespackagedetail/relationship', 'servicespackagedetail_controller@getting_all_data_with_relationship');

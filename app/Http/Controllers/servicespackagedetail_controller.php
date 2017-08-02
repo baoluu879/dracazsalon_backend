@@ -48,4 +48,13 @@ class servicespackagedetail_controller extends Controller
       return $data;
 
     }
+
+    public function getting_all_data_with_relationship(){
+      $data["message"]= "true";
+      $temp = new servicespackagedetail_function();
+      $data["data"] = $temp->fetching_all_data_with_relationship();
+
+      return $data;
+
+    }
 }
