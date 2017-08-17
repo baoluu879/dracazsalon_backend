@@ -22,7 +22,7 @@ class servicespackagedetail_controller extends Controller
       $data["message"]= $message;
       try{
         $message = "True";
-        $data["parameter"]= "servicespackagedetail/salonservice/<ID>";
+        $data["parameter"]= "servicespackagedetails/salonservice/<ID>";
         $temp = new servicespackagedetail_function();
         $data["data"] = $temp->fetching_data_with_condition_salonserviceID($ID);
       }catch(Exception $e){
@@ -38,7 +38,7 @@ class servicespackagedetail_controller extends Controller
       $data["message"]= $message;
       try{
         $message = "True";
-        $data["parameter"]= "servicespackagedetail/treatmentorder/<ID>";
+        $data["parameter"]= "servicespackagedetails/treatmentorder/<ID>";
         $temp = new servicespackagedetail_function();
         $data["data"] = $temp->fetching_data_with_condition_treatmentOrder($ID);
       }catch(Exception $e){

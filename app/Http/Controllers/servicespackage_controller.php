@@ -22,7 +22,7 @@ class servicespackage_controller extends Controller
       $data["message"]= $message;
       try{
         $message = "True";
-        $data["parameter"]= "servicespackage/<price>";
+        $data["parameter"]= "servicespackages/<price>";
         $temp = new servicespackage_function();
         $data["data"] = $temp->fetching_data_with_condition($price);
       }catch(Exception $e){

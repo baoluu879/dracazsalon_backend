@@ -22,7 +22,7 @@ class saloncard_controller extends Controller
       $data["message"]= $message;
       try{
         $message = "True";
-        $data["parameter"]= "saloncard/employee/<ID>";
+        $data["parameter"]= "saloncards/employee/<ID>";
         $temp = new saloncard_function();
         $data["data"] = $temp->fetching_data_with_condition_employeeID($ID);
       }catch(Exception $e){
@@ -38,7 +38,7 @@ class saloncard_controller extends Controller
       $data["message"]= $message;
       try{
         $message = "True";
-        $data["parameter"]= "saloncard/customer/<ID>";
+        $data["parameter"]= "saloncards/customer/<ID>";
         $temp = new saloncard_function();
         $data["data"] = $temp->fetching_data_with_condition_customerID($ID);
       }catch(Exception $e){
@@ -54,7 +54,7 @@ class saloncard_controller extends Controller
       $data["message"]= $message;
       try{
         $message = "True";
-        $data["parameter"]= "saloncard/<CardID>";
+        $data["parameter"]= "saloncards/<CardID>";
         $temp = new saloncard_function();
         $result = $temp->fetching_data_with_condition_CardNumber($CardID);
         if($result){

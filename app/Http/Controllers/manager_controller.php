@@ -22,7 +22,7 @@ class manager_controller extends Controller
       $data["message"]= $message;
       try{
         $message = "True";
-        $data["parameter"]= "manager/<storeID>";
+        $data["parameter"]= "managers/<storeID>";
         $temp = new manager_function();
         $data["data"] = $temp->fetching_data_with_condition($storeID);
       }catch(Exception $e){

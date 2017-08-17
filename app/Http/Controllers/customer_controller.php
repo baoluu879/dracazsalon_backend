@@ -22,7 +22,7 @@ class customer_controller extends Controller
       $data["message"]= $message;
       try{
         $message = "True";
-        $data["parameter"]= "customer/<phoneNumber>";
+        $data["parameter"]= "customers/<phoneNumber>";
         $temp = new customer_function();
         $data["data"] = $temp->fetching_data_with_condition($phoneNumber);
       }catch(Exception $e){

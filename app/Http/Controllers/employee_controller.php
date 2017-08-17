@@ -22,7 +22,7 @@ class employee_controller extends Controller
       $data["message"]= $message;
       try{
         $message = "True";
-        $data["parameter"]= "employee/<storeID>";
+        $data["parameter"]= "employees/<storeID>";
         $temp = new employee_function();
         $data["data"] = $temp->fetching_data_with_condition($storeID);
       }catch(Exception $e){
