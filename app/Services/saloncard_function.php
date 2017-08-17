@@ -24,4 +24,11 @@ class saloncard_function{
     return $data;
 
   }
+
+  public function fetching_data_with_condition_CardNumber($CardID){
+    $dbConnection = new saloncard();
+    $data = $dbConnection::where("SLCNumber", $CardID)->get();
+    return $data;
+
+  }
 }

@@ -17,8 +17,8 @@ Route::get('/', function () {
 });
 
 #Customer Data
-Route::get('/customer', 'customer_controller@index');
-Route::get('/customer/{phoneNumber}', 'customer_controller@getting_data_with_phoneNumber');
+Route::get('/customers', 'customer_controller@index');
+Route::get('/customers/{phoneNumber}', 'customer_controller@getting_data_with_phoneNumber');
 
 #Customer CheckIn Data
 Route::get('/customercheckin', 'customerCheckIn_controller@index');
@@ -29,8 +29,8 @@ Route::get('/customercheckinorder', 'customerCheckInOrder_controller@index');
 Route::get('/customercheckinorder/{serviceID}', 'customerCheckInOrder_controller@getting_data_with_serviceid');
 
 #Employee Data
-Route::get('/employee', 'employee_controller@index');
-Route::get('/employee/{storeID}', 'employee_controller@getting_data_with_storeID');
+Route::get('/employees', 'employee_controller@index');
+Route::get('/employees/{storeID}', 'employee_controller@getting_data_with_storeID');
 
 #Login Account Data
 Route::get('/loginaccount', 'loginaccount_controller@index');
@@ -41,42 +41,43 @@ Route::get('/logintracking', 'logintracking_controller@index');
 // Route::get('/loginaccount/{employeeID}', 'loginaccount_controller@getting_data_with_employeeID');
 
 #Manager Data
-Route::get('/manager', 'manager_controller@index');
-Route::get('/manager/{storeID}', 'manager_controller@getting_data_with_storeID');
+Route::get('/managers', 'manager_controller@index');
+Route::get('/managers/{storeID}', 'manager_controller@getting_data_with_storeID');
 
 #Salon Card Data
-Route::get('/saloncard', 'saloncard_controller@index');
-Route::get('/saloncard/employee/{ID}', 'saloncard_controller@getting_data_with_employeeID');
-Route::get('/saloncard/customer/{ID}', 'saloncard_controller@getting_data_with_customerID');
+Route::get('/saloncards', 'saloncard_controller@index');
+Route::get('/saloncards/employee/{ID}', 'saloncard_controller@getting_data_with_employeeID');
+Route::get('/saloncards/customer/{ID}', 'saloncard_controller@getting_data_with_customerID');
+Route::get('/saloncards/{CardID}', 'saloncard_controller@getting_data_with_CardNumber');
 
 #Salon Service Data
-Route::get('/salonservice', 'salonservice_controller@index');
+Route::get('/salonservices', 'salonservice_controller@index');
 // Route::get('/manager/{storeID}', 'manager_controller@getting_data_with_storeID');
 
 #Salon Store Data
-Route::get('/salonstore', 'salonstore_controller@index');
+Route::get('/salonstores', 'salonstore_controller@index');
 // Route::get('/manager/{storeID}', 'salonstore_controller@getting_data_with_storeID');
 
 #Service Category Data
-Route::get('/servicecategory', 'servicecategory_controller@index');
+Route::get('/servicecategories', 'servicecategory_controller@index');
 // Route::get('/manager/{storeID}', 'salonstore_controller@getting_data_with_storeID');
 
 #Treatment Data
-Route::get('/treatment', 'treatment_controller@index');
+Route::get('/treatments', 'treatment_controller@index');
 // Route::get('/treatment/{storeID}', 'treatment_controller@getting_data_with_storeID');
 
 #Treatment Data
-Route::get('/treatmenttype', 'treatmenttype_controller@index');
+Route::get('/treatmenttypes', 'treatmenttype_controller@index');
 // Route::get('/treatment/{storeID}', 'treatment_controller@getting_data_with_storeID');
 
 #Services Package Data
-Route::get('/servicespackage', 'servicespackage_controller@index');
-Route::get('/servicespackage/{price}', 'servicespackage_controller@getting_data_with_price');
+Route::get('/servicespackages', 'servicespackage_controller@index');
+Route::get('/servicespackages/{price}', 'servicespackage_controller@getting_data_with_price');
 
 #Service Package Detail Data
-Route::get('/servicespackagedetail', 'servicespackagedetail_controller@index');
-Route::get('/servicespackagedetail/salonservice/{ID}', 'servicespackagedetail_controller@getting_data_with_salonserviceID');
-Route::get('/servicespackagedetail/treatmentorder/{ID}', 'servicespackagedetail_controller@getting_data_with_treatmentOrder');
+Route::get('/servicespackagedetails', 'servicespackagedetail_controller@index');
+Route::get('/servicespackagedetails/salonservice/{ID}', 'servicespackagedetail_controller@getting_data_with_salonserviceID');
+Route::get('/servicespackagedetails/treatmentorder/{ID}', 'servicespackagedetail_controller@getting_data_with_treatmentOrder');
 
 #Testing With Relationship
-Route::get('/servicespackagedetail/relationship', 'servicespackagedetail_controller@getting_all_data_with_relationship');
+Route::get('/servicespackagedetails/relationship', 'servicespackagedetail_controller@getting_all_data_with_relationship');

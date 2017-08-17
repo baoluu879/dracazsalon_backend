@@ -48,4 +48,25 @@ class saloncard_controller extends Controller
       return $data;
 
     }
+
+    public function getting_data_with_CardNumber($CardID){
+      $message = "False";
+      $data["message"]= $message;
+      try{
+        $message = "True";
+        $data["parameter"]= "saloncard/<CardID>";
+        $temp = new saloncard_function();
+        $result = $temp->fetching_data_with_condition_CardNumber($CardID);
+        if($result){
+          $data["data"] = $result;
+        }else{
+          $message = "False";
+        }
+      }catch(Exception $e){
+          $message = $e;
+      }
+      $data["message"]= $message;
+      return $data;
+
+    }
 }
