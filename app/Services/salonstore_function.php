@@ -11,10 +11,10 @@ class salonstore_function{
 
   }
 
-  // public function fetching_data_with_condition($storeID){
-  //   $dbConnection = new salonstore();
-  //   $data = $dbConnection::where("ManageAtStoreID", $storeID)->get();
-  //   return $data;
-  //
-  // }
+  public function fetching_data_with_condition_storeID($storeID){
+    $dbConnection = new salonstore();
+    $data = $dbConnection::where("SSID", $storeID)->get();
+    return $data;
+
+  }
 }

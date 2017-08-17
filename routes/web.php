@@ -57,7 +57,7 @@ Route::get('/salonservices', 'salonservice_controller@index');
 
 #Salon Store Data
 Route::get('/salonstores', 'salonstore_controller@index');
-// Route::get('/manager/{storeID}', 'salonstore_controller@getting_data_with_storeID');
+Route::get('/salonstores/{storeID}', 'salonstore_controller@getting_data_with_storeID');
 
 #Service Category Data
 Route::get('/servicecategories', 'servicecategory_controller@index');
