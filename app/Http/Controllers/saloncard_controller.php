@@ -17,46 +17,14 @@ class saloncard_controller extends Controller
 
     }
 
-    public function getting_data_with_employeeID($ID){
-      $message = "False";
-      $data["message"]= $message;
-      try{
-        $message = "True";
-        $data["parameter"]= "saloncards/employee/<ID>";
-        $temp = new saloncard_function();
-        $data["data"] = $temp->fetching_data_with_condition_employeeID($ID);
-      }catch(Exception $e){
-          $message = $e;
-      }
-      $data["message"]= $message;
-      return $data;
-
-    }
-
-    public function getting_data_with_customerID($ID){
-      $message = "False";
-      $data["message"]= $message;
-      try{
-        $message = "True";
-        $data["parameter"]= "saloncards/customer/<ID>";
-        $temp = new saloncard_function();
-        $data["data"] = $temp->fetching_data_with_condition_customerID($ID);
-      }catch(Exception $e){
-          $message = $e;
-      }
-      $data["message"]= $message;
-      return $data;
-
-    }
-
-    public function getting_data_with_CardNumber($CardID){
+    public function getting_data_with_ID($CardID){
       $message = "False";
       $data["message"]= $message;
       try{
         $message = "True";
         $data["parameter"]= "saloncards/<CardID>";
         $temp = new saloncard_function();
-        $result = $temp->fetching_data_with_condition_CardNumber($CardID);
+        $result = $temp->fetching_data_with_condition_ID($CardID);
         if($result){
           $data["data"] = $result;
         }else{
@@ -68,5 +36,61 @@ class saloncard_controller extends Controller
       $data["message"]= $message;
       return $data;
 
+    }
+
+    // public function getting_data_with_customerID($ID){
+    //   $message = "False";
+    //   $data["message"]= $message;
+    //   try{
+    //     $message = "True";
+    //     $data["parameter"]= "saloncards/customer/<ID>";
+    //     $temp = new saloncard_function();
+    //     $data["data"] = $temp->fetching_data_with_condition_customerID($ID);
+    //   }catch(Exception $e){
+    //       $message = $e;
+    //   }
+    //   $data["message"]= $message;
+    //   return $data;
+    //
+    // }
+
+    public function getting_data_with_customer_CardNumber($CardNumber){
+      $message = "False";
+      $data["message"]= $message;
+      try{
+        $message = "True";
+        $data["parameter"]= "saloncards/<CardID>";
+        $temp = new saloncard_function();
+        $result = $temp->fetching_data_with_condition_customer_CardNumber($CardNumber);
+        if($result){
+          $data["data"] = $result;
+        }else{
+          $message = "False";
+        }
+      }catch(Exception $e){
+          $message = $e;
+      }
+      $data["message"]= $message;
+      return $data;
+    }
+
+    public function getting_data_with_employee_CardNumber($CardNumber){
+      $message = "False";
+      $data["message"]= $message;
+      try{
+        $message = "True";
+        $data["parameter"]= "saloncards/<CardID>";
+        $temp = new saloncard_function();
+        $result = $temp->fetching_data_with_condition_employee_CardNumber($CardNumber);
+        if($result){
+          $data["data"] = $result;
+        }else{
+          $message = "False";
+        }
+      }catch(Exception $e){
+          $message = $e;
+      }
+      $data["message"]= $message;
+      return $data;
     }
 }
