@@ -9,4 +9,5 @@ class logintracking extends Model
     //
     protected $table = "logintracking";
     protected $connection = "mysql";
+    public $timestamps = false;
 }

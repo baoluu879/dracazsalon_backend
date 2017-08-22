@@ -19,6 +19,7 @@ Route::get('/', function () {
 #Customer Data
 Route::get('/customers', 'customer_controller@index');
 Route::get('/customers/{phoneNumber}', 'customer_controller@getting_data_with_phoneNumber');
+Route::get('/customers/add_new/{CFName}/{CLName}/{CAddress}/{CCity}/{CState}/{CZipCode}/{CEmail}/{CPhone}/{CMemberType}/{UseSalonCardId}', 'customer_controller@creating_new_customer_info');
 
 #Customer CheckIn Data
 Route::get('/customercheckin', 'customerCheckIn_controller@index');

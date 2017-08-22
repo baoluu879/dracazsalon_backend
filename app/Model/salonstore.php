@@ -9,4 +9,5 @@ class salonstore extends Model
     //
     protected $table = "salonstore";
     protected $connection = "mysql";
+    public $timestamps = false;
 }

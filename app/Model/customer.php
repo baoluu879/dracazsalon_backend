@@ -9,4 +9,5 @@ class customer extends Model
     //
     protected $table = "customer";
     protected $connection = "mysql";
+    public $timestamps = false;
 }

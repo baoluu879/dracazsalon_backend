@@ -9,4 +9,5 @@ class servicecategory extends Model
     //
     protected $table = "servicecategory";
     protected $connection = "mysql";
+    public $timestamps = false;
 }

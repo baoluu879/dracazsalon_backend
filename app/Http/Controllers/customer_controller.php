@@ -32,4 +32,27 @@ class customer_controller extends Controller
       return $data;
 
     }
+
+    public function creating_new_customer_info($CFName,$CLName,$CAddress,$CCity,$CState,$CZipCode,$CEmail,$CPhone,$CMemberType,$UseSalonCardId){
+      $message = "False";
+      $data["message"]= $message;
+
+      try{
+        $message = "True";
+        $data["parameter"]= "customers/add_new/<CFName>/<CLName>/<CAddress>/<CCity>/<CState>/<CZipCode>/<CEmail>/<CPhone>/<CRegisterDate>/<CMemberType>/<UseSalonCardId>";
+        $temp = new customer_function();
+        $result = $temp->creating_new_customer($CFName,$CLName,$CAddress,$CCity,$CState,$CZipCode,$CEmail,$CPhone,$CMemberType,$UseSalonCardId);
+        if($result == 1){
+          $data["data"] = "Successful Add New Customer";
+        }else{
+          $message = "False";
+          $data["data"] = "Customer is existed. Phone Number is in used.";
+        }
+      }catch(Exception $e){
+          $message = "False";
+          $data["data"] = $result;
+      }
+      $data["message"]= $message;
+      return $data;
+    }
 }

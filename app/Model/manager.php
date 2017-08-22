@@ -9,4 +9,5 @@ class manager extends Model
     //
     protected $table = "manager";
     protected $connection = "mysql";
+    public $timestamps = false;
 }

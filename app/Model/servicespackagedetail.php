@@ -10,6 +10,7 @@ class servicespackagedetail extends Model
     //
     protected $table = "servicespackagedetail";
     protected $connection = "mysql";
+    public $timestamps = false;
 
     public function salonservice(){
       $dbConnection = new salonservice();

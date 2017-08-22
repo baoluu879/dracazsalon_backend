@@ -9,4 +9,5 @@ class servicespackage extends Model
     //
     protected $table = "servicespackage";
     protected $connection = "mysql";
+    public $timestamps = false;
 }

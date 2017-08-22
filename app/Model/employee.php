@@ -9,4 +9,5 @@ class employee extends Model
     //
     protected $table = "employee";
     protected $connection = "mysql";
+    public $timestamps = false;
 }

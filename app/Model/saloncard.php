@@ -11,6 +11,7 @@ class saloncard extends Model
     //
     protected $table = "saloncard";
     protected $connection = "mysql";
+    public $timestamps = false;
 
     public function customer(){
       $dbConnection = new customer();

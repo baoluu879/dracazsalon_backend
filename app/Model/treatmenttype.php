@@ -9,4 +9,5 @@ class treatmenttype extends Model
     //
     protected $table = "treatmenttype";
     protected $connection = "mysql";
+    public $timestamps = false;
 }

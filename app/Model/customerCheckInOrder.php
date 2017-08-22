@@ -9,4 +9,5 @@ class customerCheckInOrder extends Model
     //
     protected $table = "customercheckinorder";
     protected $connection = "mysql";
+    public $timestamps = false;
 }
