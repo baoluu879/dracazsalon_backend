@@ -10,9 +10,20 @@ class salonstore_controller extends Controller
     //
 
     public function index(){
-      $data["message"]= "true";
+      $data["message"]= "False";
       $temp = new salonstore_function();
-      $data["data"] = $temp->fetching_all_data();
+      try{
+        $result = $temp->fetching_all_data();
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
+      }catch(Exception $e){
+          $message = $e;
+      }
+      $data["message"]= $message;
       return $data;
 
     }
@@ -25,10 +36,11 @@ class salonstore_controller extends Controller
         $data["parameter"]= "salonstore/<storeID>";
         $temp = new salonstore_function();
         $result = $temp->fetching_data_with_condition_storeID($storeID);
-        if($result){
+        if($result && sizeof($result) > 0){
           $data["data"] = $result;
+          $message = "True";
         }else{
-          $message = "False";
+          $data["data"] = [];
         }
       }catch(Exception $e){
           $message = $e;

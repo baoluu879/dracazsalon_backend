@@ -10,9 +10,20 @@ class saloncard_controller extends Controller
     //
 
     public function index(){
-      $data["message"]= "true";
+      $data["message"]= "False";
       $temp = new saloncard_function();
-      $data["data"] = $temp->fetching_all_data();
+      try{
+        $result = $temp->fetching_all_data();
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
+      }catch(Exception $e){
+          $message = $e;
+      }
+      $data["message"]= $message;
       return $data;
 
     }
@@ -21,14 +32,14 @@ class saloncard_controller extends Controller
       $message = "False";
       $data["message"]= $message;
       try{
-        $message = "True";
         $data["parameter"]= "saloncards/<CardID>";
         $temp = new saloncard_function();
         $result = $temp->fetching_data_with_condition_ID($CardID);
-        if($result){
+        if($result && sizeof($result) > 0){
           $data["data"] = $result;
+          $message = "True";
         }else{
-          $message = "False";
+          $data["data"] = [];
         }
       }catch(Exception $e){
           $message = $e;
@@ -62,10 +73,11 @@ class saloncard_controller extends Controller
         $data["parameter"]= "saloncards/<CardID>";
         $temp = new saloncard_function();
         $result = $temp->fetching_data_with_condition_customer_CardNumber($CardNumber);
-        if($result){
+        if($result && sizeof($result) > 0){
           $data["data"] = $result;
+          $message = "True";
         }else{
-          $message = "False";
+          $data["data"] = [];
         }
       }catch(Exception $e){
           $message = $e;
@@ -82,10 +94,11 @@ class saloncard_controller extends Controller
         $data["parameter"]= "saloncards/<CardID>";
         $temp = new saloncard_function();
         $result = $temp->fetching_data_with_condition_employee_CardNumber($CardNumber);
-        if($result){
+        if($result && sizeof($result) > 0){
           $data["data"] = $result;
+          $message = "True";
         }else{
-          $message = "False";
+          $data["data"] = [];
         }
       }catch(Exception $e){
           $message = $e;

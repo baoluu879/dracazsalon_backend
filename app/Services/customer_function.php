@@ -12,6 +12,13 @@ class customer_function{
 
   }
 
+  public function fetching_data_with_customerID($customerID){
+    $dbConnection = new customer();
+    $data = $dbConnection::where("CID", $customerID)->get();
+    return $data;
+
+  }
+
   public function fetching_data_with_condition($phoneNumber){
     $dbConnection = new customer();
     $data = $dbConnection::where("CPhone", $phoneNumber)->get();

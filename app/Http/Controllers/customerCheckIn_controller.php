@@ -10,9 +10,20 @@ class customerCheckIn_controller extends Controller
     //
 
     public function index(){
-      $data["message"]= "true";
+      $data["message"]= "False";
       $temp = new customerCheckIn_function();
-      $data["data"] = $temp->fetching_all_data();
+      try{
+        $result = $temp->fetching_all_data();
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
+      }catch(Exception $e){
+          $message = $e;
+      }
+      $data["message"]= $message;
       return $data;
 
     }
@@ -24,7 +35,13 @@ class customerCheckIn_controller extends Controller
         $message = "True";
         $data["parameter"]= "customercheckin/<payType>";
         $temp = new customerCheckIn_function();
-        $data["data"] = $temp->fetching_data_with_condition($payType);
+        $result = $temp->fetching_data_with_condition($payType);
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
       }catch(Exception $e){
           $message = $e;
       }

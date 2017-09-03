@@ -18,7 +18,8 @@ Route::get('/', function () {
 
 #Customer Data
 Route::get('/customers', 'customer_controller@index');
-Route::get('/customers/{phoneNumber}', 'customer_controller@getting_data_with_phoneNumber');
+Route::get('/customers/{customerID}', 'customer_controller@getting_data_with_customerID');
+Route::get('/customers/phone/{phoneNumber}', 'customer_controller@getting_data_with_phoneNumber');
 Route::get('/customers/add_new/{CFName}/{CLName}/{CAddress}/{CCity}/{CState}/{CZipCode}/{CEmail}/{CPhone}/{CMemberType}/{UseSalonCardId}', 'customer_controller@creating_new_customer_info');
 
 #Customer CheckIn Data
@@ -31,7 +32,8 @@ Route::get('/customercheckinorder/{serviceID}', 'customerCheckInOrder_controller
 
 #Employee Data
 Route::get('/employees', 'employee_controller@index');
-Route::get('/employees/{storeID}', 'employee_controller@getting_data_with_storeID');
+Route::get('/employees/store/{storeID}', 'employee_controller@getting_data_with_storeID');
+Route::get('/employees/{employeeID}', 'employee_controller@getting_data_with_employeeID');
 
 #Login Account Data
 Route::get('/loginaccount', 'loginaccount_controller@index');

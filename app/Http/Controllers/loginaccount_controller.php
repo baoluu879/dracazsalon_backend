@@ -10,9 +10,20 @@ class loginaccount_controller extends Controller
     //
 
     public function index(){
-      $data["message"]= "true";
+      $data["message"]= "False";
       $temp = new loginaccount_function();
-      $data["data"] = $temp->fetching_all_data();
+      try{
+        $result = $temp->fetching_all_data();
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
+      }catch(Exception $e){
+          $message = $e;
+      }
+      $data["message"]= $message;
       return $data;
 
     }
@@ -24,7 +35,13 @@ class loginaccount_controller extends Controller
         $message = "True";
         $data["parameter"]= "loginaccount/<employeeID>";
         $temp = new loginaccount_function();
-        $data["data"] = $temp->fetching_data_with_condition($employeeID);
+        $result = $temp->fetching_data_with_condition($employeeID);
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
       }catch(Exception $e){
           $message = $e;
       }

@@ -10,9 +10,20 @@ class employee_controller extends Controller
     //
 
     public function index(){
-      $data["message"]= "true";
+      $data["message"]= "False";
       $temp = new employee_function();
-      $data["data"] = $temp->fetching_all_data();
+      try{
+        $result = $temp->fetching_all_data();
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
+      }catch(Exception $e){
+          $message = $e;
+      }
+      $data["message"]= $message;
       return $data;
 
     }
@@ -21,10 +32,36 @@ class employee_controller extends Controller
       $message = "False";
       $data["message"]= $message;
       try{
-        $message = "True";
-        $data["parameter"]= "employees/<storeID>";
+        $data["parameter"]= "employees/store/<storeID>";
         $temp = new employee_function();
-        $data["data"] = $temp->fetching_data_with_condition($storeID);
+        $result = $temp->fetching_data_with_storeID($storeID);
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
+      }catch(Exception $e){
+          $message = $e;
+      }
+      $data["message"]= $message;
+      return $data;
+
+    }
+
+    public function getting_data_with_employeeID($employeeID){
+      $message = "False";
+      $data["message"]= $message;
+      try{
+        $data["parameter"]= "employees/<CardID>";
+        $temp = new employee_function();
+        $result = $temp->fetching_data_with_employeeID($employeeID);
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
       }catch(Exception $e){
           $message = $e;
       }

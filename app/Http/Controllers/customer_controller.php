@@ -10,9 +10,42 @@ class customer_controller extends Controller
     //
 
     public function index(){
-      $data["message"]= "true";
+      $data["message"]= "False";
       $temp = new customer_function();
-      $data["data"] = $temp->fetching_all_data();
+      try{
+        $result = $temp->fetching_all_data();
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
+      }catch(Exception $e){
+          $message = $e;
+      }
+      $data["message"]= $message;
+      return $data;
+
+    }
+
+    public function getting_data_with_customerID($customerID){
+      $message = "False";
+      $data["message"]= $message;
+      try{
+
+        $data["parameter"]= "employees/<CardID>";
+        $temp = new customer_function();
+        $result = $temp->fetching_data_with_customerID($customerID);
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
+      }catch(Exception $e){
+          $message = $e;
+      }
+      $data["message"]= $message;
       return $data;
 
     }
@@ -24,7 +57,13 @@ class customer_controller extends Controller
         $message = "True";
         $data["parameter"]= "customers/<phoneNumber>";
         $temp = new customer_function();
-        $data["data"] = $temp->fetching_data_with_condition($phoneNumber);
+        $result = $temp->fetching_data_with_condition($phoneNumber);
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
       }catch(Exception $e){
           $message = $e;
       }

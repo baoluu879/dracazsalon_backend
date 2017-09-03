@@ -10,9 +10,20 @@ class servicespackagedetail_controller extends Controller
     //
 
     public function index(){
-      $data["message"]= "true";
+      $data["message"]= "False";
       $temp = new servicespackagedetail_function();
-      $data["data"] = $temp->fetching_all_data();
+      try{
+        $result = $temp->fetching_all_data();
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
+      }catch(Exception $e){
+          $message = $e;
+      }
+      $data["message"]= $message;
       return $data;
 
     }
@@ -24,7 +35,13 @@ class servicespackagedetail_controller extends Controller
         $message = "True";
         $data["parameter"]= "servicespackagedetails/salonservice/<ID>";
         $temp = new servicespackagedetail_function();
-        $data["data"] = $temp->fetching_data_with_condition_salonserviceID($ID);
+        $result = $temp->fetching_data_with_condition_salonserviceID($ID);
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
       }catch(Exception $e){
           $message = $e;
       }
@@ -37,10 +54,16 @@ class servicespackagedetail_controller extends Controller
       $message = "False";
       $data["message"]= $message;
       try{
-        $message = "True";
+
         $data["parameter"]= "servicespackagedetails/treatmentorder/<ID>";
         $temp = new servicespackagedetail_function();
-        $data["data"] = $temp->fetching_data_with_condition_treatmentOrder($ID);
+        $result = $temp->fetching_data_with_condition_treatmentOrder($ID);
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
       }catch(Exception $e){
           $message = $e;
       }
@@ -50,9 +73,21 @@ class servicespackagedetail_controller extends Controller
     }
 
     public function getting_all_data_with_relationship(){
-      $data["message"]= "true";
-      $temp = new servicespackagedetail_function();
-      $data["data"] = $temp->fetching_all_data_with_relationship();
+      $message= "False";
+      $data["message"] = $message;
+      try{
+        $temp = new servicespackagedetail_function();
+        $result = $temp->fetching_all_data_with_relationship();
+        if($result && sizeof($result) > 0){
+          $data["data"] = $result;
+          $message = "True";
+        }else{
+          $data["data"] = [];
+        }
+      }catch(Exception $e){
+          $message = $e;
+      }
+      $data["message"]= $message;
 
       return $data;
 
