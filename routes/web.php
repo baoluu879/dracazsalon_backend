@@ -37,7 +37,8 @@ Route::get('/employees/{employeeID}', 'employee_controller@getting_data_with_emp
 
 #Login Account Data
 Route::get('/loginaccount', 'loginaccount_controller@index');
-Route::get('/loginaccount/{employeeID}', 'loginaccount_controller@getting_data_with_employeeID');
+Route::get('/loginaccount/{LID}', 'loginaccount_controller@getting_data_with_loginaccountID');
+Route::get('/loginaccount/belongto/{employeeID}', 'loginaccount_controller@getting_data_with_employeeID');
 
 #Login Tracking Data
 Route::get('/logintracking', 'logintracking_controller@index');

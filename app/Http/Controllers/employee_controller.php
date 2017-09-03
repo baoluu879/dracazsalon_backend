@@ -53,7 +53,7 @@ class employee_controller extends Controller
       $message = "False";
       $data["message"]= $message;
       try{
-        $data["parameter"]= "employees/<CardID>";
+        $data["parameter"]= "employees/<employeeID>";
         $temp = new employee_function();
         $result = $temp->fetching_data_with_employeeID($employeeID);
         if($result && sizeof($result) > 0){

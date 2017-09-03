@@ -32,7 +32,7 @@ class customerCheckInOrder_controller extends Controller
       $message = "False";
       $data["message"]= $message;
       try{
-        $message = "True";
+
         $data["parameter"]= "customercheckinorder/<serviceID>";
         $temp = new customerCheckInOrder_function();
         $result = $temp->fetching_data_with_condition($serviceID);

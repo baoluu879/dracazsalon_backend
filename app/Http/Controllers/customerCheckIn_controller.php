@@ -32,7 +32,7 @@ class customerCheckIn_controller extends Controller
       $message = "False";
       $data["message"]= $message;
       try{
-        $message = "True";
+
         $data["parameter"]= "customercheckin/<payType>";
         $temp = new customerCheckIn_function();
         $result = $temp->fetching_data_with_condition($payType);

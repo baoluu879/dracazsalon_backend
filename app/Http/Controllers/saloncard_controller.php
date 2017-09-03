@@ -69,7 +69,7 @@ class saloncard_controller extends Controller
       $message = "False";
       $data["message"]= $message;
       try{
-        $message = "True";
+
         $data["parameter"]= "saloncards/<CardID>";
         $temp = new saloncard_function();
         $result = $temp->fetching_data_with_condition_customer_CardNumber($CardNumber);
@@ -90,7 +90,7 @@ class saloncard_controller extends Controller
       $message = "False";
       $data["message"]= $message;
       try{
-        $message = "True";
+
         $data["parameter"]= "saloncards/<CardID>";
         $temp = new saloncard_function();
         $result = $temp->fetching_data_with_condition_employee_CardNumber($CardNumber);

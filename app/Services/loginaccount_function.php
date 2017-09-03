@@ -17,4 +17,11 @@ class loginaccount_function{
     return $data;
 
   }
+
+  public function fetching_data_with_loginaccountID($LID){
+    $dbConnection = new loginaccount();
+    $data = $dbConnection::where("LID", $LID)->with('employee')->get();
+    return $data;
+
+  }
 }

@@ -32,7 +32,7 @@ class servicespackagedetail_controller extends Controller
       $message = "False";
       $data["message"]= $message;
       try{
-        $message = "True";
+
         $data["parameter"]= "servicespackagedetails/salonservice/<ID>";
         $temp = new servicespackagedetail_function();
         $result = $temp->fetching_data_with_condition_salonserviceID($ID);

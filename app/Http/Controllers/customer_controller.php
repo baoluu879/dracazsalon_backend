@@ -54,7 +54,6 @@ class customer_controller extends Controller
       $message = "False";
       $data["message"]= $message;
       try{
-        $message = "True";
         $data["parameter"]= "customers/<phoneNumber>";
         $temp = new customer_function();
         $result = $temp->fetching_data_with_condition($phoneNumber);
@@ -77,12 +76,13 @@ class customer_controller extends Controller
       $data["message"]= $message;
 
       try{
-        $message = "True";
+
         $data["parameter"]= "customers/add_new/<CFName>/<CLName>/<CAddress>/<CCity>/<CState>/<CZipCode>/<CEmail>/<CPhone>/<CRegisterDate>/<CMemberType>/<UseSalonCardId>";
         $temp = new customer_function();
         $result = $temp->creating_new_customer($CFName,$CLName,$CAddress,$CCity,$CState,$CZipCode,$CEmail,$CPhone,$CMemberType,$UseSalonCardId);
         if($result == 1){
           $data["data"] = "Successful Add New Customer";
+          $message = "True";
         }else{
           $message = "False";
           $data["data"] = "Customer is existed. Phone Number is in used.";

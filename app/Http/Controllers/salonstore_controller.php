@@ -32,7 +32,7 @@ class salonstore_controller extends Controller
       $message = "False";
       $data["message"]= $message;
       try{
-        $message = "True";
+
         $data["parameter"]= "salonstore/<storeID>";
         $temp = new salonstore_function();
         $result = $temp->fetching_data_with_condition_storeID($storeID);

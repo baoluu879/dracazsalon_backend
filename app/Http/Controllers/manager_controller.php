@@ -32,7 +32,7 @@ class manager_controller extends Controller
       $message = "False";
       $data["message"]= $message;
       try{
-        $message = "True";
+
         $data["parameter"]= "managers/<storeID>";
         $temp = new manager_function();
         $result = $temp->fetching_data_with_condition($storeID);
