@@ -54,7 +54,7 @@ class loginaccount_controller extends Controller
       $message = "False";
       $data["message"]= $message;
       try{
-        $data["parameter"]= "loginaccount/<LID>";
+        $data["parameter"]= "loginaccount/<LID/Username>";
         $temp = new loginaccount_function();
         $result = $temp->fetching_data_with_loginaccountID($LID);
         if($result && sizeof($result) > 0){
