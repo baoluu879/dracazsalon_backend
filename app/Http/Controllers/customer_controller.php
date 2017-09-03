@@ -33,7 +33,7 @@ class customer_controller extends Controller
       $data["message"]= $message;
       try{
 
-        $data["parameter"]= "employees/<CardID>";
+        $data["parameter"]= "customers/<CardID>";
         $temp = new customer_function();
         $result = $temp->fetching_data_with_customerID($customerID);
         if($result && sizeof($result) > 0){
