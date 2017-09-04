@@ -1,6 +1,7 @@
 <?php
 namespace App\Services;
 use App\Model\customer;
+use App\Services\global_variables;
 
 class customer_function{
 
@@ -28,6 +29,7 @@ class customer_function{
 
   public function creating_new_customer($CFName,$CLName,$CAddress,$CCity,$CState,$CZipCode,$CEmail,$CPhone,$CMemberType,$UseSalonCardId){
     $dbConnection = new customer();
+    $global = new global_variables();
     $message = "";
     $data = $dbConnection::where("CPhone", $CPhone)->get();
     if(!$data){
@@ -84,7 +86,8 @@ class customer_function{
         }
 
         $now = time();
-        $dbConnection->CRegisterDate = date('Y-m-d H:i:s', $now);
+        $minus_time = $global->minus_time;
+        $dbConnection->CRegisterDate = date('Y-m-d H:i:s', $now - $minus_time);
         $dbConnection->save();
         $message = 1;
       }
