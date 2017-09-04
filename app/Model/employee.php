@@ -4,6 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Model\loginaccount;
+use App\Model\manager;
 
 class employee extends Model
 {
@@ -12,8 +13,13 @@ class employee extends Model
     protected $connection = "mysql";
     public $timestamps = false;
 
-    public function employee(){
+    public function loginaccount(){
       $dbConnection = new loginaccount();
-      return $this->hasOne($dbConnection, 'LID', 'BelongToEmployee');
+      return $this->hasOne($dbConnection, 'BelongToEmployee', 'EID');
+    }
+
+    public function manager(){
+      $dbConnection = new manager();
+      return $this->hasOne($dbConnection, 'EmployeeID', 'EID');
     }
 }

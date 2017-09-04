@@ -46,7 +46,8 @@ Route::get('/logintracking', 'logintracking_controller@index');
 
 #Manager Data
 Route::get('/managers', 'manager_controller@index');
-Route::get('/managers/{storeID}', 'manager_controller@getting_data_with_storeID');
+Route::get('/managers/store/{storeID}', 'manager_controller@getting_data_with_storeID');
+Route::get('/managers/{employeeID}', 'manager_controller@getting_data_with_employeeID');
 
 #Salon Card Data
 Route::get('/saloncards', 'saloncard_controller@index');
