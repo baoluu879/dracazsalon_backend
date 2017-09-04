@@ -17,4 +17,20 @@ class logintracking_function{
   //   return $data;
   //
   // }
+
+  public function create_new_logintracking($LID){
+    $dbConnection = new logintracking();
+    $message = 0;
+    try{
+      $dbConnection->LID = $LID;
+      $now = time();
+      $dbConnection->LoginDate = date('Y-m-d H:i:s', $now);
+      $dbConnection->save();
+      $message = 1;
+    }catch(Exception $e){
+        $message = $e;
+    }
+
+    return $message;
+  }
 }

@@ -43,4 +43,28 @@ class logintracking_controller extends Controller
     //   return $data;
     //
     // }
+
+    public function creating_new_logintracking_record($LID){
+      $message = "False";
+      $data["message"]= $message;
+
+      try{
+
+        $data["parameter"]= "logintracking/add_new/<LID>";
+        $temp = new logintracking_function();
+        $result = $temp->create_new_logintracking($LID);
+        if($result == 1){
+          $data["data"] = "Successful Add New Login Tracking";
+          $message = "True";
+        }else{
+          $message = "False";
+          $data["data"] = "Failed to Add New Login Tracking";
+        }
+      }catch(Exception $e){
+          $message = "False";
+          $data["data"] = $result;
+      }
+      $data["message"]= $message;
+      return $data;
+    }
 }

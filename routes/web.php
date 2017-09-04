@@ -43,6 +43,7 @@ Route::get('/loginaccount/belongto/{employeeID}', 'loginaccount_controller@getti
 #Login Tracking Data
 Route::get('/logintracking', 'logintracking_controller@index');
 // Route::get('/loginaccount/{employeeID}', 'loginaccount_controller@getting_data_with_employeeID');
+Route::get('/logintracking/add_new/{LID}', 'logintracking_controller@creating_new_logintracking_record');
 
 #Manager Data
 Route::get('/managers', 'manager_controller@index');
