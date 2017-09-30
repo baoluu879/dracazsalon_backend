@@ -11,9 +11,9 @@ class saloncard_function{
 
   }
 
-  public function fetching_data_with_condition_ID($CardID){
+  public function fetching_data_with_condition_number($CardNumber){
     $dbConnection = new saloncard();
-    $data = $dbConnection::where("SLCNumber", $CardID)->get();
+    $data = $dbConnection::where("SLCNumber", $CardNumber)->get();
     return $data;
 
   }

@@ -52,7 +52,7 @@ Route::get('/managers/{employeeID}', 'manager_controller@getting_data_with_emplo
 
 #Salon Card Data
 Route::get('/saloncards', 'saloncard_controller@index');
-Route::get('/saloncards/{CardID}', 'saloncard_controller@getting_data_with_ID');
+Route::get('/saloncards/{CardNumber}', 'saloncard_controller@getting_data_with_number');
 Route::get('/saloncards/employee/{CardNumber}', 'saloncard_controller@getting_data_with_employee_CardNumber');
 Route::get('/saloncards/customer/{CardNumber}', 'saloncard_controller@getting_data_with_customer_CardNumber');
 

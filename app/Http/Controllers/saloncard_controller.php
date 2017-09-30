@@ -28,13 +28,13 @@ class saloncard_controller extends Controller
 
     }
 
-    public function getting_data_with_ID($CardID){
+    public function getting_data_with_number($CardNumber){
       $message = "False";
       $data["message"]= $message;
       try{
-        $data["parameter"]= "saloncards/<CardID>";
+        $data["parameter"]= "saloncards/<CardNumber>";
         $temp = new saloncard_function();
-        $result = $temp->fetching_data_with_condition_ID($CardID);
+        $result = $temp->fetching_data_with_condition_number($CardNumber);
         if($result && sizeof($result) > 0){
           $data["data"] = $result;
           $message = "True";
