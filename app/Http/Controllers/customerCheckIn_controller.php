@@ -49,4 +49,27 @@ class customerCheckIn_controller extends Controller
       return $data;
 
     }
+
+    public function creating_new_customerCheckIn_info($OfCustomerID,$CIType,$CIStatus,$AtSalonID,$ServedByEmployeeID,$CITipToEmployee,$CITotalFeeWithoutTip,$CIPayType){
+      $message = "False";
+      $data["message"]= $message;
+      try{
+        $data["parameter"]= "customercheckin/add_new/<OfCustomerID>/<CIType>/<CIStatus>/<AtSalonID>/<ServedByEmployeeID>/<CITipToEmployee>/<CITotalFeeWithoutTip>/<CIPayType>";
+        $temp = new customerCheckIn_function();
+        $result = $temp->creating_new_customerCheckIn($OfCustomerID,$CIType,$CIStatus,$AtSalonID,$ServedByEmployeeID,$CITipToEmployee,$CITotalFeeWithoutTip,$CIPayType);
+        if($result == 1){
+          $data["data"] = "Successful Add New Customer Check In";
+          $message = "True";
+        }else{
+          $message = "False";
+          $data["data"] = "Unsuccessful Add New Customer Check In";
+        }
+      }catch(Exception $e){
+          $message = "False";
+          $data["data"] = $result;
+      }
+      $data["message"]= $message;
+      return $data;
+
+    }
 }

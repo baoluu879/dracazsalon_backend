@@ -25,6 +25,7 @@ Route::get('/customers/add_new/{CFName}/{CLName}/{CAddress}/{CCity}/{CState}/{CZ
 #Customer CheckIn Data
 Route::get('/customercheckin', 'customerCheckIn_controller@index');
 Route::get('/customercheckin/{payType}', 'customerCheckIn_controller@getting_data_with_paytype');
+Route::get('/customercheckin/add_new/{OfCustomerID}/{CIType}/{CIStatus}/{AtSalonID}/{ServedByEmployeeID}/{CITipToEmployee}/{CITotalFeeWithoutTip}/{CIPayType}', 'customerCheckIn_controller@creating_new_customerCheckIn_info');
 
 #Customer CheckIn Order Data
 Route::get('/customercheckinorder', 'customerCheckInOrder_controller@index');

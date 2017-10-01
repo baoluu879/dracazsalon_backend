@@ -82,7 +82,7 @@ class customer_function{
         if($UseSalonCardId){
           $dbConnection->UseSalonCardId = $UseSalonCardId;
         }else{
-          $dbConnection->UseSalonCardId = "NA";
+          $dbConnection->UseSalonCardId = 0;
         }
 
         $now = time();
@@ -101,7 +101,5 @@ class customer_function{
     }
 
     return $message;
-
-
   }
 }
