@@ -28,13 +28,13 @@ class saloncard_controller extends Controller
 
     }
 
-    public function getting_data_with_number($CardNumber){
+    public function getting_data_with_id($CardID){
       $message = "False";
       $data["message"]= $message;
       try{
-        $data["parameter"]= "saloncards/<CardNumber>";
+        $data["parameter"]= "saloncards/<CardID>";
         $temp = new saloncard_function();
-        $result = $temp->fetching_data_with_condition_number($CardNumber);
+        $result = $temp->fetching_data_with_condition_id($CardID);
         if($result && sizeof($result) > 0){
           $data["data"] = $result;
           $message = "True";
@@ -70,7 +70,7 @@ class saloncard_controller extends Controller
       $data["message"]= $message;
       try{
 
-        $data["parameter"]= "saloncards/<CardID>";
+        $data["parameter"]= "saloncards/customer/<CardNumber>";
         $temp = new saloncard_function();
         $result = $temp->fetching_data_with_condition_customer_CardNumber($CardNumber);
         if($result && sizeof($result) > 0){
@@ -91,7 +91,7 @@ class saloncard_controller extends Controller
       $data["message"]= $message;
       try{
 
-        $data["parameter"]= "saloncards/<CardID>";
+        $data["parameter"]= "saloncards/employee.<CardNumber>";
         $temp = new saloncard_function();
         $result = $temp->fetching_data_with_condition_employee_CardNumber($CardNumber);
         if($result && sizeof($result) > 0){
