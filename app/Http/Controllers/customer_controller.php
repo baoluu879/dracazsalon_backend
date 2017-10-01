@@ -43,7 +43,8 @@ class customer_controller extends Controller
           $data["data"] = [];
         }
       }catch(Exception $e){
-          $message = $e;
+          $message = "False";
+          $data["data"] = $e;
       }
       $data["message"]= $message;
       return $data;
@@ -64,7 +65,8 @@ class customer_controller extends Controller
           $data["data"] = [];
         }
       }catch(Exception $e){
-          $message = $e;
+          $message = "False";
+          $data["data"] = $e;
       }
       $data["message"]= $message;
       return $data;
@@ -89,7 +91,7 @@ class customer_controller extends Controller
         }
       }catch(Exception $e){
           $message = "False";
-          $data["data"] = $result;
+          $data["data"] = $e;
       }
       $data["message"]= $message;
       return $data;

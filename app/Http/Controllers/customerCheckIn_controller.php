@@ -56,7 +56,7 @@ class customerCheckIn_controller extends Controller
       try{
         $data["parameter"]= "customercheckin/add_new/<OfCustomerID>/<CIType>/<CIStatus>/<AtSalonID>/<ServedByEmployeeID>/<CITipToEmployee>/<CITotalFeeWithoutTip>/<CIPayType>";
         $temp = new customerCheckIn_function();
-        $result = $temp->creating_new_customerCheckIn($OfCustomerID,$CIType,$CIStatus,$AtSalonID,$ServedByEmployeeID,$CITipToEmployee,$CITotalFeeWithoutTip,$CIPayType);
+        $result = $temp->creating_new_customerCheckIn_info($OfCustomerID,$CIType,$CIStatus,$AtSalonID,$ServedByEmployeeID,$CITipToEmployee,$CITotalFeeWithoutTip,$CIPayType);
         if($result == 1){
           $data["data"] = "Successful Add New Customer Check In";
           $message = "True";
@@ -66,7 +66,7 @@ class customerCheckIn_controller extends Controller
         }
       }catch(Exception $e){
           $message = "False";
-          $data["data"] = $result;
+          $data["data"] = $e;
       }
       $data["message"]= $message;
       return $data;

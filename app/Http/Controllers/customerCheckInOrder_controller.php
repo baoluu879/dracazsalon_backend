@@ -49,4 +49,29 @@ class customerCheckInOrder_controller extends Controller
       return $data;
 
     }
+
+    public function creating_new_customerCheckInOrder_info($CheckInID,$ServiceID,$Quantity,$DiscountPercent,$PaidPrice,$Note){
+      $message = "False";
+      $data["message"]= $message;
+      try{
+        $data["parameter"]= "customercheckinorder/add_new/<CheckInID>/<ServiceID>/<Quantity>/<DiscountPercent>/<PaidPrice>/<Note>";
+        $temp = new customerCheckInOrder_function();
+        $result = $temp->creating_new_customerCheckInOrder_info($CheckInID,$ServiceID,$Quantity,$DiscountPercent,$PaidPrice,$Note);
+        if($result == 1){
+          $data["data"] = "Successful Add New Customer Check In Order";
+          $message = "True";
+        }else{
+          $message = "False";
+          $data["data"] = "Unsuccessful Add New Customer Check In Order";
+        }
+      }catch(Exception $e){
+          $message = "False";
+          $data["data"] = $e;
+      }
+      $data["message"]= $message;
+      return $data;
+
+    }
+
+
 }

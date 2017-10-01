@@ -19,7 +19,7 @@ class customerCheckIn_function{
   }
 
 
-  public function creating_new_customerCheckIn($OfCustomerID,$CIType,$CIStatus,$AtSalonID,$ServedByEmployeeID,$CITipToEmployee,$CITotalFeeWithoutTip,$CIPayType){
+  public function creating_new_customerCheckIn_info($OfCustomerID,$CIType,$CIStatus,$AtSalonID,$ServedByEmployeeID,$CITipToEmployee,$CITotalFeeWithoutTip,$CIPayType){
     $dbConnection = new customerCheckIn();
     $global = new global_variables();
     $message = "";

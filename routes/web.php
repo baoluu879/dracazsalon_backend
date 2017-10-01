@@ -30,6 +30,7 @@ Route::get('/customercheckin/add_new/{OfCustomerID}/{CIType}/{CIStatus}/{AtSalon
 #Customer CheckIn Order Data
 Route::get('/customercheckinorder', 'customerCheckInOrder_controller@index');
 Route::get('/customercheckinorder/{serviceID}', 'customerCheckInOrder_controller@getting_data_with_serviceid');
+Route::get('/customercheckinorder/add_new/{CheckInID}/{ServiceID}/{Quantity}/{DiscountPercent}/{PaidPrice}/{Note}', 'customerCheckInOrder_controller@creating_new_customerCheckInOrder_info');
 
 #Employee Data
 Route::get('/employees', 'employee_controller@index');
