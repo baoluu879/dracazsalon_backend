@@ -70,4 +70,35 @@ class loginaccount_controller extends Controller
       return $data;
 
     }
+
+    public function updating_loginaccount_lastlogindate($LID){
+      $message = "False";
+      $data["message"]= $message;
+
+      try{
+
+        $data["parameter"]= "loginaccount/update_lastlogindate/<LID>";
+        $temp = new loginaccount_function();
+        $checkexisting = $temp->fetching_data_with_loginaccountID($LID);
+        if($checkexisting && sizeof($checkexisting) > 0){
+          $result = $temp->update_lastlogindate($LID);
+          if($result == 1){
+            $data["data"] = "Successful Updating Login Account";
+            $message = "True";
+          }else{
+            $message = "False";
+            $data["data"] = "Failed to Update Login Account";
+          }
+        }
+        else{
+          $message = "False";
+          $data["data"] = "Login Username Does Not Exist";
+        }
+      }catch(Exception $e){
+          $message = "False";
+          $data["data"] = $result;
+      }
+      $data["message"]= $message;
+      return $data;
+    }
 }

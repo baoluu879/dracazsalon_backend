@@ -41,6 +41,7 @@ Route::get('/employees/{employeeID}', 'employee_controller@getting_data_with_emp
 Route::get('/loginaccount', 'loginaccount_controller@index');
 Route::get('/loginaccount/{LID}', 'loginaccount_controller@getting_data_with_loginaccountID');
 Route::get('/loginaccount/belongto/{employeeID}', 'loginaccount_controller@getting_data_with_employeeID');
+Route::get('/loginaccount/update_lastlogindate/{LID}', 'loginaccount_controller@updating_loginaccount_lastlogindate');
 
 #Login Tracking Data
 Route::get('/logintracking', 'logintracking_controller@index');

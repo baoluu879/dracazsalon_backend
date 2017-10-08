@@ -24,4 +24,21 @@ class loginaccount_function{
     return $data;
 
   }
+
+  public function update_lastlogindate($LID){
+    $dbConnection = new loginaccount();
+    $global = new global_variables();
+    $message = 0;
+    try{
+      $now = time();
+      $minus_time = $global->minus_time;
+      $LastLoginDate = date('Y-m-d H:i:s', $now - $minus_time);
+      $data = $dbConnection::where("LID", $LID)->update(['LLastLoginDate' => $LastLoginDate]);
+      $message = 1;
+    }catch(Exception $e){
+        $message = $e;
+    }
+
+    return $message;
+  }
 }
