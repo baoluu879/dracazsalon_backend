@@ -12,11 +12,16 @@ class logintracking_function{
 
   }
 
-  // public function fetching_data_with_condition($employeeID){
-  //   $dbConnection = new loginaccount();
-  //   $data = $dbConnection::where("BelongToEmployee", $employeeID)->get();
+  public function fetching_data_with_loginID($LID){
+    $dbConnection = new logintracking();
+    $data = $dbConnection::where("LID", $LID)->get();
+    return $data;
+  }
+
+  // public function fetching_latest_data_logindate($LID){
+  //   $dbConnection = new logintracking();
+  //   $data = $dbConnection::where("LID", $LID)->orderBy('LoginDate', 'desc')->get();
   //   return $data;
-  //
   // }
 
   public function create_new_logintracking($LID){
@@ -37,4 +42,25 @@ class logintracking_function{
 
     return $message;
   }
+
+  public function updating_logout($LID){
+    $dbConnection = new logintracking();
+    $global = new global_variables();
+    $message = 0;
+    try{
+      $now = time();
+      $minus_time = $global->minus_time;
+      $LogOutDate = date('Y-m-d H:i:s', $now - $minus_time);
+      $data = $dbConnection::where("LID", $LID)->orderBy('LoginDate', 'DESC')->limit(1)->update(['LogoutDate' => $LogOutDate]);
+      $message = 1;
+    }catch(Exception $e){
+        $message = $e;
+    }
+    return $message;
+  }
+
+
+
+
+
 }

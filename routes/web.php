@@ -47,6 +47,7 @@ Route::get('/loginaccount/update_lastlogindate/{LID}', 'loginaccount_controller@
 Route::get('/logintracking', 'logintracking_controller@index');
 // Route::get('/loginaccount/{employeeID}', 'loginaccount_controller@getting_data_with_employeeID');
 Route::get('/logintracking/add_new/{LID}', 'logintracking_controller@creating_new_logintracking_record');
+Route::get('/logintracking/update_logout/{LID}', 'logintracking_controller@updating_logout_of_logintracking_record');
 
 #Manager Data
 Route::get('/managers', 'manager_controller@index');
