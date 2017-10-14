@@ -68,20 +68,20 @@ class logintracking_controller extends Controller
       return $data;
     }
 
-    public function updating_logout_of_logintracking_record($LID){
+    public function updating_logout_of_logintracking_record($LID, $LogOutDateTime){
       $message = "False";
       $data["message"]= $message;
 
       try{
-        $data["parameter"]= "/logintracking/update_logout/<LID>";
+        $data["parameter"]= "/logintracking/update_logout/<LID>/<LogOutDateTime>";
         $temp = new logintracking_function();
-        $result = $temp->updating_logout($LID);
+        $result = $temp->updating_logout($LID, $LogOutDateTime);
         if($result == 1){
-          $data["data"] = "Successful Updating Logout Account";
+          $data["data"] = "Successful Logout Account";
           $message = "True";
         }else{
           $message = "False";
-          $data["data"] = "Failed to Update Logout Account";
+          $data["data"] = "Failed to Logout Account";
         }
       }catch(Exception $e){
           $message = "False";
@@ -89,6 +89,6 @@ class logintracking_controller extends Controller
       }
       $data["message"]= $message;
       return $data;
-    
+
     }
 }

@@ -43,16 +43,21 @@ class logintracking_function{
     return $message;
   }
 
-  public function updating_logout($LID){
+  public function updating_logout($LID, $LogOutDateTime){
     $dbConnection = new logintracking();
     $global = new global_variables();
     $message = 0;
     try{
-      $now = time();
-      $minus_time = $global->minus_time;
-      $LogOutDate = date('Y-m-d H:i:s', $now - $minus_time);
-      $data = $dbConnection::where("LID", $LID)->orderBy('LoginDate', 'DESC')->limit(1)->update(['LogoutDate' => $LogOutDate]);
-      $message = 1;
+      $checkDate = $dbConnection::where("DATE(LoginDate)", $LogOutDateTime);
+      if($checkDate){
+        $now = time();
+        $minus_time = $global->minus_time;
+        $LogOutDate = date('Y-m-d H:i:s', $now - $minus_time);
+        $data = $dbConnection::where("LID", $LID)->orderBy('LoginDate', 'DESC')->limit(1)->update(['LogoutDate' => $LogOutDate]);
+        $message = 1;
+      }else{
+        $message = 0;
+      }
     }catch(Exception $e){
         $message = $e;
     }
