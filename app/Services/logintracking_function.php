@@ -12,17 +12,17 @@ class logintracking_function{
 
   }
 
-  public function fetching_data_with_loginID($LID){
-    $dbConnection = new logintracking();
-    $data = $dbConnection::where("LID", $LID)->get();
-    return $data;
-  }
-
-  // public function fetching_latest_data_logindate($LID){
+  // public function fetching_data_with_loginID($LID){
   //   $dbConnection = new logintracking();
-  //   $data = $dbConnection::where("LID", $LID)->orderBy('LoginDate', 'desc')->get();
+  //   $data = $dbConnection::where("LID", $LID)->get();
   //   return $data;
   // }
+
+  public function fetching_latest_data_loginID($LID){
+    $dbConnection = new logintracking();
+    $data = $dbConnection::where("LID", $LID)->orderBy('LoginDate', 'desc')->limit(1)->get();
+    return $data;
+  }
 
   public function create_new_logintracking($LID){
     $dbConnection = new logintracking();
